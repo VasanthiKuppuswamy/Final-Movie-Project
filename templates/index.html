@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="users-section">
+        <h1>Users</h1>
+
+        <ul class="user-list">
+            {% for user in users %}
+            <li class="user-entry">
+                <a href="{{ url_for('show_user_movies', user_id=user.id) }}" class="user-link">
+                    {{ user.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="add-user-form">
+            <h2>Add New User</h2>
+            <form action="{{ url_for('add_user') }}" method="POST">
+                <input type="text" name="name" placeholder="Enter user name" required>
+                <button type="submit" class="btn">Add User</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

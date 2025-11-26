@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fff9e6;
+    color: #333;
+}
+
+.header-with-image {
+    background: url('/static/images/cinema.png') no-repeat center center;
+    background-size: cover;
+    height: 200px; /* Adjust as needed */
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.navbar {
+    background-color: #2f2f2f;
+    color: #333;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: none;
+}
+
+.navbar h1 a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 1rem;
+}
+
+hr {
+    display: none;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Form Styles */
+form {
+    margin: 1rem 0;
+}
+
+input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #ffd700;
+    border-radius: 4px;
+    width: 200px;
+    margin-right: 0.5rem;
+    background-color: #fffdf6;
+}
+
+button, input[type="submit"] {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #ffab00;
+}
+
+
+.footer-with-image {
+    background: url('/static/images/popcorn.png') no-repeat center center;
+    background-size: cover;
+    height: 150px; /* Adjust as needed */
+    position: relative;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    background-color: #2f2f2f;
+    color: #333;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: none;
+}
+
+
+/* Flash messages */
+.flash-messages {
+    margin: 1rem 0;
+}
+
+.flash-success {
+    color: #2e7d32;
+    background-color: #a5d6a7;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.flash-error {
+    color: #c62828;
+    background-color: #ef9a9a;
+    padding: 0.5rem;
+    border-radius: 4px;
+}

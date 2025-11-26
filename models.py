@@ -13,10 +13,11 @@ class User(db.Model):
 class Movie(db.Model):
     __tablename__ = 'movies'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(100), nullable=False)
-    director = db.Column(db.String(100), nullable=False)
+    title = db.Column(db.String(100), nullable=False)
+    director = db.Column(db.String(100), nullable=True)
     year = db.Column(db.Integer)
     poster_url = db.Column(db.String(200))
+    imdb_id = db.Column(db.String(20))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def __repr__(self):

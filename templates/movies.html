@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.name }}'s Movies{% endblock %}
+
+{% block content %}
+    <section class="movies-section">
+        <div class="user-header">
+            <h1>{{ user.name }}'s Movie Collection</h1>
+            <a href="{{ url_for('home') }}" class="btn back-btn">← Back to Users</a>
+        </div>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Add Movie Form -->
+        <div class="add-movie-form">
+            <h2>Add New Movie</h2>
+            <form method="POST" action="{{ url_for('add_user_movie', user_id=user.id) }}">
+                <input type="text" name="title" placeholder="Movie title" required>
+                <button type="submit" class="btn">Add Movie</button>
+            </form>
+        </div>
+
+        <!-- Movies List -->
+        <div class="movies-list">
+            {% if movies %}
+                {% for movie in movies %}
+                    <div class="movie-card">
+                        {% if movie.poster_url %}
+                            <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="movie-poster">
+                        {% endif %}
+                        <div class="movie-details">
+                            <h3 class="movie-title">{{ movie.title }}</h3>
+                            <p class="movie-year">{{ movie.year }}</p>
+                            {% if movie.director %}
+                                <p class="movie-director">Director: {{ movie.director }}</p>
+                            {% endif %}
+
+                            <!-- Update and Delete Forms -->
+                            <div class="movie-actions">
+                                <form method="POST" action="{{ url_for('update_movie_title', user_id=user.id, movie_id=movie.id) }}" class="inline-form">
+                                    <input type="text" name="new_title" placeholder="New title" required>
+                                    <button type="submit" class="btn small-btn">Update</button>
+                                </form>
+
+                                <form method="POST" action="{{ url_for('delete_movie', user_id=user.id, movie_id=movie.id) }}" class="inline-form">
+                                    <button type="submit" class="btn small-btn delete-btn">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-movies">No movies added yet.</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

@@ -13,6 +13,11 @@ class DataManager():
         """Return a list of all users in the database"""
         return User.query.all()
 
+    def get_user(self, user_id):
+        return User.query.get(user_id)
+
+
+
     def get_movies(self, user_id):
         """Return a list of all movies for a specific user"""
         return Movie.query.filter_by(user_id=user_id).all()
