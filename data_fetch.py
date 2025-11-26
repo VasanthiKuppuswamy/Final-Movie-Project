@@ -9,7 +9,6 @@ load_dotenv()
 
 # Constants
 API_KEY = os.getenv("API_KEY")
-
 API_URL = f"http://www.omdbapi.com/?apikey={API_KEY}&t="
 POSTER_URL = f"http://img.omdbapi.com/?apikey={API_KEY}&"
 
